@@ -1,0 +1,3 @@
+WHITEONBLACK() { [ $? = 0 ] && printf "%s" "$@" | ../sent-wob; }
+BLACKONWHITE() { [ $? = 0 ] && printf "%s" "$@" | ../sent-bow; }
+
