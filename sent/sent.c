@@ -24,6 +24,7 @@
 #include "drw.h"
 
 char *argv0;
+int q = 0;
 
 /* macros */
 #define LEN(a)         (sizeof(a) / sizeof(a)[0])
@@ -432,6 +433,14 @@ advance(const Arg *arg)
 {
 	int new_idx = idx + arg->i;
 	LIMIT(new_idx, 0, slidecount-1);
+
+	/* quit when advancing last slide */
+	if (!q) {
+		if (slidecount == idx + 2)
+				q = 1;
+	} else
+		quit(0);
+
 	if (new_idx != idx) {
 		if (slides[idx].img)
 			slides[idx].img->state &= ~SCALED;
