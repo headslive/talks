@@ -5,16 +5,18 @@ slidecount="$(grep -c '^$' slides.sh)"
 
 ./slides.sh &
 
+sleep 1
 for i in $(seq -w 1 $slidecount); do
 	sleep 0.2
 	import page-${i}.pdf &
+	sleep 0.2
 	xdotool click 1
 	xdotool click 1
 	sleep 0.2
 done
 
-# first slide ends up being the terminal
-rm page-01.pdf
+xdotool click 1
 
+sleep 0.2
 pdfunite *.pdf slides.pdf
 rm page-*.pdf
