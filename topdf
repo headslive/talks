@@ -1,0 +1,20 @@
+#!/bin/sh
+# converts sent-style presentations to pdf
+
+slidecount="$(grep -c '^$' slides.sh)"
+
+./slides.sh &
+
+for i in $(seq -w 1 $slidecount); do
+	sleep 0.2
+	import page-${i}.pdf &
+	xdotool click 1
+	xdotool click 1
+	sleep 0.2
+done
+
+# first slide ends up being the terminal
+rm page-01.pdf
+
+pdfunite *.pdf slides.pdf
+rm page-*.pdf
