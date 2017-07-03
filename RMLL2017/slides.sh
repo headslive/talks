@@ -68,6 +68,10 @@ no consolekit, policykit or a login manager
 less code == less obsolete code == smaller attack surface
 
 utilities, editors, and a web browser, along with CLI software as well
+
+the root filesystem is a git repository
+
+easily customize heads, or fetch your files after startup
 "
 
 WHITEONBLACK "
