@@ -88,5 +88,3 @@ WHITEONBLACK "
 ─────────────
          thank you
 "
-
-
